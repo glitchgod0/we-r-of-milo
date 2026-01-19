@@ -11,6 +11,7 @@ namespace we_r_of_milo
         kHolmesUnknown = 0,
         kHolmesVer15 = 15,
         kHolmesVer24 = 24,
+        kHolmesVer26 = 26,
         kHolmesVer48 = 48,
         kHolmesVer63 = 63
     }
@@ -40,6 +41,30 @@ namespace we_r_of_milo
     }
 
     public enum HolmesPacketsV24
+    {
+        kVersion,
+        kSysExec,
+        kGetStat,
+        kOpenFile,
+        kWriteFile,
+        kReadFile,
+        kCloseFile,
+        kPrint,
+        kMkDir,
+        kDelete,
+        kEnumerate,
+        kCacheFile,
+        kCompareFileTimes,
+        kTerminate,
+        kCacheResource,
+        kPollKeyboard,
+        kPollJoypad,
+        kStackTrace,
+        kSendMessage,
+        kTruncateFile,
+        kInvalidOpcode
+    }
+    public enum HolmesPacketsV26
     {
         kVersion,
         kSysExec,

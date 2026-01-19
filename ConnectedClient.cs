@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using we_r_of_milo.PacketHandlers;
 using we_r_of_milo.PacketHandlers.v15;
 using we_r_of_milo.PacketHandlers.v24;
+using we_r_of_milo.PacketHandlers.v26;
 using we_r_of_milo.PacketHandlers.v48;
 using we_r_of_milo.PacketHandlers.v63;
 
@@ -49,6 +50,12 @@ namespace we_r_of_milo
                     _version = HolmesVersion.kHolmesVer24;
                     RegisterHandlersV24();
                 }
+                else if (packetVersion == 26)
+                {
+                    Console.WriteLine("Client is v26!");
+                    _version = HolmesVersion.kHolmesVer26;
+                    RegisterHandlersV26();
+                }
                 else if (packetVersion == 48)
                 {
                     Console.WriteLine("Client is v48!");
@@ -71,6 +78,11 @@ namespace we_r_of_milo
             else if (_version == HolmesVersion.kHolmesVer24)
             {
                 HolmesPacketsV24 packet = (HolmesPacketsV24)packetType;
+                Console.WriteLine("Handling {0} for {1} ({2})", packet, _clientName, _version);
+            }
+            else if (_version == HolmesVersion.kHolmesVer26)
+            {
+                HolmesPacketsV26 packet = (HolmesPacketsV26)packetType;
                 Console.WriteLine("Handling {0} for {1} ({2})", packet, _clientName, _version);
             }
             else if (_version == HolmesVersion.kHolmesVer48)
@@ -112,6 +124,11 @@ namespace we_r_of_milo
             handlers[(int)HolmesPacketsV24.kEnumerate] = new EnumerateHandlerV24(this);
             handlers[(int)HolmesPacketsV24.kCacheResource] = new CacheResourceHandlerV24(this);
             handlers[(int)HolmesPacketsV24.kStackTrace] = new StackTraceHandlerV24(this);
+        }
+
+        private void RegisterHandlersV26()
+        {
+            handlers[(int)HolmesPacketsV26.kVersion] = new VersionHandlerV26(this);
         }
 
         private void RegisterHandlersV48()
