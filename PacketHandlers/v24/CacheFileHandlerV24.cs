@@ -4,12 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace we_r_of_milo.PacketHandlers.v26
+namespace we_r_of_milo.PacketHandlers.v24
 {
-    internal class CacheFileHandlerV26 : IPacketHandler
+    internal class CacheFileHandlerV24 : IPacketHandler
     {
         public ConnectedClient Client { get; set; }
-        public CacheFileHandlerV26(ConnectedClient _client)
+        public CacheFileHandlerV24(ConnectedClient _client)
         {
             Client = _client;
         }
@@ -25,8 +25,8 @@ namespace we_r_of_milo.PacketHandlers.v26
             //if not, idk. panic.
 
             //hack
-            stream.WriteByte((byte)HolmesPacketsV26.kCacheFile);
-            stream.WriteByte(0x00);
+            stream.WriteByte((byte)HolmesPacketsV24.kCacheFile);
+            stream.WriteByte(0x01);
         
             //return;
         }

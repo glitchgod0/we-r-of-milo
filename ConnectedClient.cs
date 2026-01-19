@@ -120,6 +120,7 @@ namespace we_r_of_milo
             handlers[(int)HolmesPacketsV24.kOpenFile] = new OpenFileHandlerV24(this);
             handlers[(int)HolmesPacketsV24.kReadFile] = new ReadFileHandlerV24(this);
             handlers[(int)HolmesPacketsV24.kCloseFile] = new CloseFileHandlerV24(this);
+            handlers[(int)HolmesPacketsV24.kCacheFile] = new CacheFileHandlerV24(this);
             handlers[(int)HolmesPacketsV24.kPrint] = new PrintHandlerV24(this);
             handlers[(int)HolmesPacketsV24.kEnumerate] = new EnumerateHandlerV24(this);
             handlers[(int)HolmesPacketsV24.kCacheResource] = new CacheResourceHandlerV24(this);
