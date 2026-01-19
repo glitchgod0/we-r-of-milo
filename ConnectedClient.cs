@@ -129,6 +129,12 @@ namespace we_r_of_milo
         private void RegisterHandlersV26()
         {
             handlers[(int)HolmesPacketsV26.kVersion] = new VersionHandlerV26(this);
+            handlers[(int)HolmesPacketsV26.kOpenFile] = new OpenFileHandlerV26(this);
+            handlers[(int)HolmesPacketsV26.kReadFile] = new ReadFileHandlerV26(this);
+            handlers[(int)HolmesPacketsV26.kCloseFile] = new CloseFileHandlerV26(this);
+            handlers[(int)HolmesPacketsV26.kCacheFile] = new CacheFileHandlerV26(this);
+            handlers[(int)HolmesPacketsV26.kStackTrace] = new StackTraceHandlerV26(this);
+
         }
 
         private void RegisterHandlersV48()
