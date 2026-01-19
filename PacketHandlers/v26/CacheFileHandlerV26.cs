@@ -27,9 +27,7 @@ namespace we_r_of_milo.PacketHandlers.v24
             //hack
             stream.WriteByte((byte)HolmesPacketsV26.kCacheFile);
             stream.WriteByte(0x00);
-            //Console.WriteLine(stream.ReadBytes(30)); 
-
-
+        
             //return;
         }
     }
