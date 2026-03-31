@@ -16,19 +16,21 @@ namespace we_r_of_milo.PacketHandlers.v24
 
         public void HandlePacket(Stream stream)
         {
-            uint Size = stream.ReadUInt32LE();
-            string FilePath = stream.ReadASCIINullTerminated();
+            string filePath = stream.ReadLengthPrefixedString(Encoding.UTF8);
+            int fileRes = stream.ReadByte();
 
-            Console.WriteLine("Output not implemented fully, hack used");
+            if (fileRes == 0x1)
+            {
+                UInt64 fileTime = stream.ReadUInt64LE();
+            }
 
-            //i think if the file doesnt exist on the console but does on the pc, it sends true and i guess copy the file over?
-            //if not, idk. panic.
+            //TODO: process the file timestamp and verify if its older than the files on the pc
+            //if it is give 0x00 and load from pc 
+            //if not, continue (give 0x01)
 
-            //hack
-            stream.WriteByte((byte)HolmesPacketsV24.kCacheFile);
-            stream.WriteByte(0x01);
-        
-            //return;
+            stream.WriteByte((byte)HolmesPacketsV26.kCacheFile);
+            stream.WriteByte(0x00);
+
         }
     }
 }
