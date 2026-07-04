@@ -24,9 +24,11 @@ namespace we_r_of_milo.PacketHandlers.v26
                 UInt64 fileTime = stream.ReadUInt64LE();
             }
 
-            //TODO: process the file timestamp and verify if its older than the files on the pc
-            //if it is give 0x00 and load from pc 
-            //if not, continue (give 0x01)
+            /*
+            TODO: process the file timestamp and verify if its older than the files on the pc
+            if it is give 0x00 and load from pc 
+            if not, continue (give 0x01)
+            */
 
 
             stream.WriteByte((byte)HolmesPacketsV26.kCacheFile);

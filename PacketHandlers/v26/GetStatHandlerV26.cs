@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Timers;
 
 namespace we_r_of_milo.PacketHandlers.v26
 {
@@ -16,6 +17,7 @@ namespace we_r_of_milo.PacketHandlers.v26
 
         public void HandlePacket(Stream stream)
         {
+            Thread.Sleep(1500);
             string path = stream.ReadLengthPrefixedString(Encoding.UTF8);
             Console.WriteLine(" path: " + path);
 

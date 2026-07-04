@@ -120,7 +120,6 @@ namespace we_r_of_milo
             handlers[(int)HolmesPacketsV24.kOpenFile] = new OpenFileHandlerV24(this);
             handlers[(int)HolmesPacketsV24.kReadFile] = new ReadFileHandlerV24(this);
             handlers[(int)HolmesPacketsV24.kCloseFile] = new CloseFileHandlerV24(this);
-            handlers[(int)HolmesPacketsV24.kCacheFile] = new CacheFileHandlerV24(this);
             handlers[(int)HolmesPacketsV24.kPrint] = new PrintHandlerV24(this);
             handlers[(int)HolmesPacketsV24.kEnumerate] = new EnumerateHandlerV24(this);
             handlers[(int)HolmesPacketsV24.kCacheResource] = new CacheResourceHandlerV24(this);
@@ -134,11 +133,11 @@ namespace we_r_of_milo
             handlers[(int)HolmesPacketsV26.kOpenFile] = new OpenFileHandlerV26(this);
             handlers[(int)HolmesPacketsV26.kReadFile] = new ReadFileHandlerV26(this);
             handlers[(int)HolmesPacketsV26.kCloseFile] = new CloseFileHandlerV26(this);
-            handlers[(int)HolmesPacketsV26.kCacheFile] = new CacheFileHandlerV26(this);
+            handlers[(int)HolmesPacketsV26.kDelete] = new DeleteHandlerV26(this);
             handlers[(int)HolmesPacketsV26.kEnumerate] = new EnumerateHandlerV26(this);
+            handlers[(int)HolmesPacketsV26.kCacheFile] = new CacheFileHandlerV26(this);
             handlers[(int)HolmesPacketsV26.kCacheResource] = new CacheResourceHandlerV26(this);
             handlers[(int)HolmesPacketsV26.kStackTrace] = new StackTraceHandlerV26(this);
-
         }
 
         private void RegisterHandlersV48()
