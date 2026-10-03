@@ -26,48 +26,29 @@ namespace we_r_of_milo.PacketHandlers.v26
             Console.WriteLine(" match: " + dir);
             Console.WriteLine(" unk1:" + unk1.ToString("X2") + " unk2:" + unk2.ToString("X2"));
 
-            // stubbed response for now
+
             stream.WriteByte((byte)HolmesPacketsV24.kEnumerate);
-            //stream.WriteByte(0);
-
-            //// WIP
-
-            //if (dir == ".")
-            //{
-            //    stream.WriteByte(0);
-            //    return;
-            //}
 
             dir = dir.Replace("..", "(..)");
-            Console.WriteLine(dir);
             DirectoryInfo dirInfo = new DirectoryInfo("files/" + dir);
 
             if (!dirInfo.Exists)
             {
                 stream.WriteByte(0);
-                Console.WriteLine("EXIT 1");
                 return;
             }
 
             FileInfo[] Files = dirInfo.GetFiles();
 
-            if (Files.Length == 0)
-            {
-                stream.WriteByte(0);
-                Console.WriteLine("EXIT 2");
-            } else {
-                
-                foreach (FileInfo i in Files)
-                {
-                    Console.WriteLine("Dir Name - {0}", dir);
-                    Console.WriteLine("File Name - {0}", i.Name);
 
-                    stream.WriteByte(1);
-                    stream.WriteLengthPrefixedString(Encoding.UTF8, dir);
-                    stream.WriteLengthPrefixedString(Encoding.UTF8, i.Name); //idk what the 2nd string is
-                }
-                stream.WriteByte(0);
+            foreach (FileInfo i in Files)
+            {
+                stream.WriteByte(1);
+                stream.WriteLengthPrefixedString(Encoding.UTF8, dir);
+                stream.WriteLengthPrefixedString(Encoding.UTF8, i.Name);
             }
+            stream.WriteByte(0);
+           
 
         }
     }
